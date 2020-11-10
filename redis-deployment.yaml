@@ -2,19 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    application: thkim-ops-view
+    application: krane-ops-view
     component: redis
-  name: thkim-ops-view-redis
+  name: krane-ops-view-redis
 spec:
   replicas: 1
   selector:
     matchLabels:
-      application: thkim-ops-view
+      application: krane-ops-view
       component: redis
   template:
     metadata:
       labels:
-        application: thkim-ops-view
+        application: krane-ops-view
         component: redis
     spec:
       containers:
