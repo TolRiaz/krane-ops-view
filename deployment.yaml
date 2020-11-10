@@ -2,32 +2,32 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    application: thkim-ops-view
+    application: krane-ops-view
     component: frontend
-  name: thkim-ops-view
+  name: krane-ops-view
 spec:
   replicas: 1
   selector:
     matchLabels:
-      application: thkim-ops-view
+      application: krane-ops-view
       component: frontend
   template:
     metadata:
       labels:
-        application: thkim-ops-view
+        application: krane-ops-view
         component: frontend
     spec:
-      serviceAccountName: thkim-ops-view
+      serviceAccountName: krane-ops-view
       containers:
       - name: service
         # see https://github.com/hjacobs/kube-ops-view/releases
-        image: 220.149.13.178:5050/krane-ops-view:v2.03
+        image: dumonet/krane-ops-view
         args:
         # remove this option to use built-in memory store
-        - --redis-url=redis://thkim-ops-view-redis:6379
+        - --redis-url=redis://krane-ops-view-redis:6379
         # example to add external links for nodes and pods
-        # - --node-link-url-template=https://thkim-web-view.example.org/clusters/{cluster}/nodes/{name}
-        # - --pod-link-url-template=https://thkim-web-view.example.org/clusters/{cluster}/namespaces/{namespace}/pods/{name}
+        # - --node-link-url-template=https://krane-web-view.example.org/clusters/{cluster}/nodes/{name}
+        # - --pod-link-url-template=https://krane-web-view.example.org/clusters/{cluster}/namespaces/{namespace}/pods/{name}
         ports:
         - containerPort: 8080
           protocol: TCP
