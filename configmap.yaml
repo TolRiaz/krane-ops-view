@@ -4,4 +4,5 @@ metadata:
   name: krane-ops-view
 data:
   # prometheus ip
-  promURL: http://<ip>:<port>
+  PROMURL: http://<ip>:<port>
+  PROMPORT: "9100"

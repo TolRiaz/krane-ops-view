@@ -21,7 +21,8 @@ spec:
       containers:
       - name: service
         # see https://github.com/hjacobs/kube-ops-view/releases
-        image: dumonet/krane-ops-view
+        # image: dumonet/krane-ops-view
+        image: 220.149.13.178:5050/krane-ops-view:latest
         args:
         # remove this option to use built-in memory store
         - --redis-url=redis://krane-ops-view-redis:6379
@@ -33,7 +34,12 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: krane-ops-view
-              key: promURL
+              key: PROMURL
+        - name: PROMPORT
+          valueFrom:
+            configMapKeyRef:
+              name: krane-ops-view
+              key: PROMPORT
         readinessProbe:
           httpGet:
             path: /health
