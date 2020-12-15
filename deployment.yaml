@@ -22,8 +22,7 @@ spec:
       - name: service
         # see https://github.com/hjacobs/kube-ops-view/releases
         # image: dumonet/krane-ops-view
-        image: 220.149.13.178:5050/krane-ops-view:latest
-        args:
+        image: dumonet/krane-ops-view:mec
         # remove this option to use built-in memory store
         - --redis-url=redis://krane-ops-view-redis:6379
         ports:
