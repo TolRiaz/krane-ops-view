@@ -5,4 +5,4 @@ metadata:
 data:
   # prometheus ip
   PROMURL: http://<ip>:<port>
-  PROMPORT: "9100"
+  PROMPORT: "9100"      # node-exporter Port
